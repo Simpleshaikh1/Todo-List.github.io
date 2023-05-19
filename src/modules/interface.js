@@ -1,7 +1,6 @@
 import todoTask from './todo.js';
 
 export default class Interface {
-  
   static displayToDoList = () => {
     const toDoListContainer = document.querySelector(
       '.toDoItem',
@@ -10,7 +9,7 @@ export default class Interface {
     todoTask.sort((i, j) => i.index - j.index);
     todoTask.forEach((task) => {
       const listItem = document.createElement('div');
-      listItem.className = "toDoList";
+      listItem.className = 'toDoList';
       listItem.innerHTML = `
       <input type="checkbox" id="${task.index}" name="${task.description}" value="${task.description}"> ${task.description}
       `;
