@@ -77,7 +77,24 @@
   color: #7e8081;
 }
 
-.optionBtn {
+.tick {
+  color: #021336;
+  font-size: 1.5rem;
+}
+
+input[type="checkbox"]:checked {
+  border: none;
+  background-color: #000;
+  color: #063187;
+  font-size: 1.8rem;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.optionBtn,
+.deleteBtn {
   border: none;
   background-color: transparent;
   padding: 0 0;
@@ -86,4 +103,61 @@
   height: 2rem;
   position: absolute;
   z-index: 10;
+}
+
+.deleteBtn {
+  color: #f0a1a1;
+}
+
+.deleteBtn:hover {
+  color: #7d3737;
+}
+
+.editInput {
+  display: flex;
+  border: none;
+  font-size: 1rem;
+  background-color: transparent;
+  outline: none;
+}
+
+.editColor {
+  background-color: rgb(202, 191, 176);
+}
+
+.clearTask {
+  width: 50%;
+  border-radius: 2%;
+  margin-left: 25%;
+  font-size: larger;
+  height: 4rem;
+  color: #d3870c;
+  background-color: grey;
+}
+
+.danger {
+  background-color: #fe2335;
+}
+
+.success {
+  background-color: #25cb4c;
+}
+
+.hide {
+  display: none;
+}
+
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 30%;
+  margin: 3% 40%;
+}
+
+.errorMsg {
+  border: none;
+  justify-content: center;
+  align-items: center;
 }
