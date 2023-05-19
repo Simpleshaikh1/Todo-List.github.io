@@ -62,6 +62,11 @@ export default class Interface {
       checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', (event) => {
           Interface.lineOnTask(event.target);
+          const task = Interface.toDoList.find(
+            (task) => task.index === parseInt(event.target.id, 10),
+          );
+          task.done = event.target.checked;
+          Storage.updateTasks(Interface.toDoList);
         });
       });
     }
