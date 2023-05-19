@@ -1,6 +1,7 @@
 import todoTask from './todo.js';
 
 export default class Interface {
+  
   static displayToDoList = () => {
     const toDoListContainer = document.querySelector(
       '.toDoItem',
