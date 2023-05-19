@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do list</title>
+  <script defer src="runtime.js"></script><script defer src="main.js"></script></head>
+  <body>
+    <section class="to-do-list-section">
+      <div class="to-do-list-container">
+        <div class="to-do-header">
+          <h1>Today's To Do</h1>
+          <i class="fa fa-refresh" aria-hidden="true"></i>
+        </div>
+        <form class="to-do-list-form" id="task-form">
+          <div class="input-area">
+            <input id="title" type="text" placeholder="Add to your list..." />
+            <i class="fa fa-sign-in enter-icon" aria-hidden="true"></i>
+          </div>
+        </form>
+        <ul class="to-do-list-item-container"></ul>
+        <button class="clear-all-tasks-completed-btn" type="button">
+          Clear all completed
+        </button>
+      </div>
+    </section>
+    <script src="main.js"></script>
+  </body>
+</html>
