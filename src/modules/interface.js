@@ -130,9 +130,7 @@ export default class Interface {
     const checkBoxId = parseInt(checkbox.id, 10);
     const checkBoxValue = checkbox.value;
     const listItem = checkbox.parentNode;
-    const checkBox = listItem.querySelector('.checkbox');
     const taskDescription = listItem.querySelector('.taskDescription');
-    const tick = listItem.querySelector('.tick');
 
     if (taskDescription) {
       if (checkbox.checked) {
@@ -143,8 +141,6 @@ export default class Interface {
         };
         Interface.completedTasks.push(completedTask);
         taskDescription.classList.add('completed');
-        checkBox.classList.add('hide');
-        tick.classList.remove('hide');
         checkbox.dataset.completedTask = JSON.stringify(completedTask);
       }
     }

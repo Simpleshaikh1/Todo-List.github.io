@@ -77,15 +77,10 @@
   color: #7e8081;
 }
 
-.tick {
-  color: #021336;
-  font-size: 1.5rem;
-}
-
 input[type="checkbox"]:checked {
   border: none;
   background-color: #000;
-  color: #063187;
+  color: #032362;
   font-size: 1.8rem;
 }
 

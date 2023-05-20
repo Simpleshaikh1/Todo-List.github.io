@@ -40,7 +40,7 @@
 -  Items can be deleted.
 -  All selected Item can be marked as complete
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## 🚀 Live Demo
 
 - [Live Demo Link](Comming soon)
 
