@@ -40,9 +40,9 @@
 -  Items can be deleted.
 -  All selected Item can be marked as complete
 
-## 🚀 Live Demo
+## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](Comming soon)
+- [Live Demo Link](https://simpleshaikh1.github.io/Todo-List.github.io/dist/)
 
 
 
