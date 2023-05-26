@@ -4,7 +4,7 @@
   "description": "<a name=\"readme-top\"></a>",
   "private": true,
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "start": "webpack serve --open",
     "build": "webpack"
   },
@@ -12,8 +12,8 @@
   "author": "Toyyib Bello",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.21.8",
-    "@babel/preset-env": "^7.21.5",
+    "@babel/core": "^7.22.0",
+    "@babel/preset-env": "^7.22.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^29.5.0",
     "css-loader": "^6.7.3",

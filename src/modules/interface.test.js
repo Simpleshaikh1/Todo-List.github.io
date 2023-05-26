@@ -1,4 +1,5 @@
-const Interface = require('./interface.js');
+// const Interface = require('./interface');
+import Interface from './interface.js';
 
 // using describe for all the functions
 describe('testing add, remove', () => {
