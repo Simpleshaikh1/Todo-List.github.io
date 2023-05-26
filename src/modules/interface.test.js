@@ -172,7 +172,6 @@ describe('clearAllTasks', () => {
     expect(clearTasks).toHaveBeenCalledTimes(2);
     expect(arrangeList).toHaveBeenCalled();
     expect(displayToDoList).toHaveBeenCalled();
-
     expect(Interface.completedTasks).toEqual([]);
     expect(Interface.toDoList).toEqual([]);
   });
