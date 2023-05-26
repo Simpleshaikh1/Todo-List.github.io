@@ -1,28 +1,65 @@
 import Interface from './interface.js';
 
-// using describe for all the functions
-describe('testing add, remove', () => {
-  const lengthBeforeAddingTask = Interface.toDoList.length;
+describe('addTask', () => {
+  // eslint-disable-next-line no-unused-vars
+  let instanceOfInterface;
+  let inputElement;
 
-  test('initial confi testing ',()=>{
-    expect(5).toBe(5);
-  })
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <div class = "toDoItem"></div>
+      <input type = "text" id="title" />
+    `;
 
-  // testing the add  in function
-  // test('Testing the add task by function', () => {
-  //   expect(Interface.addTask('keypress')).toHaveLength(lengthBeforeAddingTask + 1);
-  // });
+    instanceOfInterface = new Interface();
+    inputElement = document.getElementById('title');
+  });
 
-  // test('Testing add by number of DOM elements', () => {
-  //   const allListItems = document.querySelectorAll('.toDoList');
-  //   expect(allListItems.length).toHaveLength(lengthBeforeAddingTask + 1);
-  // });
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
 
-  // test('Testing the delete task in funtion', () => {
-  //   expect(Interface.deleteTask('keypress')).toHaveLength(lengthBeforeAddingTask - 1);
-  // });
+  test('should add a new task to the ToDo list when Enter key is pressed and the title is not empty', () => {
+    inputElement.value = 'New Task';
+    const event = new KeyboardEvent('keyup', { key: 'Enter' });
+    inputElement.dispatchEvent(event);
+  });
 
-  // test('Testing the delete task in DOM', () => {
-  //   expect(Interface.toDoList.length).toHaveLength(lengthBeforeAddingTask - 1);
-  // });
+  test('should show an alert when Enter key is pressed and the title is empty', () => {
+    inputElement.value = '';
+    const event = new KeyboardEvent('keyup', { key: 'Enter' });
+    inputElement.dispatchEvent(event);
+  });
+});
+
+describe('deleteTask', () => {
+  // eslint-disable-next-line no-unused-vars
+  let instanceOfInterface;
+  let listItem;
+  let deleteBtn;
+
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <div class="toDoItem">
+        <div class="toDoList">
+          <input type="checkbox" class="checkbox" id="1" name="Task 1" value="Task 1">
+          <div class="taskDescription">Task 1</div>
+          <button type="button" class="optionBtn"><i class="fa fa-ellipsis-v fa-2xl menu" id="1"></i></button>
+          <button type="button" class="deleteBtn hide"><i class="fa fa-trash fa-xl trash-bin"></i></button>
+        </div>
+      </div>
+    `;
+
+    instanceOfInterface = new Interface();
+    listItem = document.querySelector('.toDoList');
+    deleteBtn = listItem.querySelector('.deleteBtn');
+  });
+
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  test('should delete the task when delete button is clicked', () => {
+    deleteBtn.click();
+  });
 });
