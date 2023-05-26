@@ -72,6 +72,10 @@ export default class Interface {
     }
   };
 
+   static myTestF = (a, b)=>{
+    return a+b;
+  }
+
   // add task to list
   static addTask = (e) => {
     if (e.key === 'Enter') {
@@ -88,6 +92,8 @@ export default class Interface {
         Interface.displayToDoList();
         Interface.emptyFields();
       }
+    }else{
+      return null;
     }
   };
 
