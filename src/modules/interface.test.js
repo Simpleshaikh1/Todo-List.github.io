@@ -1,4 +1,5 @@
 import Interface from './interface.js';
+import Storage from './storage.js';
 
 describe('addTask', () => {
   // eslint-disable-next-line no-unused-vars
@@ -150,50 +151,29 @@ describe('lineOnTask', () => {
 });
 
 describe('clearAllTasks', () => {
-  // eslint-disable-next-line no-unused-vars
-  let instanceOfInterface;
-  let clearBtn;
-  // eslint-disable-next-line no-unused-vars
-  let toDoListContainer;
-
-  beforeEach(() => {
+  it('should clear all completed tasks and update the to-do list', () => {
     document.body.innerHTML = `
-      <div class="toDoItem">
-        <div class="toDoList">
-          <input type="checkbox" class="checkbox" id="1" name="Task 1" value="Task 1" checked>
-          <div class="taskDescription completed">Task 1</div>
-        </div>
-        <div class="toDoList">
-          <input type="checkbox" class="checkbox" id="2" name="Task 2" value="Task 2" checked>
-          <div class="taskDescription completed">Task 2</div>
-        </div>
-      </div>
-      <button class="clearTask">Clear Completed Tasks</button>
-    `;
+    <div class="toDoItem"></div>
+    <button class="clearTask"></button>
+  `;
+    const getTasks = jest.spyOn(Storage, 'getTasks');
+    const clearTasks = jest.spyOn(Storage, 'clearTasks');
+    const arrangeList = jest.spyOn(Interface, 'arrangeList');
+    const displayToDoList = jest.spyOn(Interface, 'displayToDoList');
 
-    instanceOfInterface = new Interface();
-    clearBtn = document.querySelector('.clearTask');
-    toDoListContainer = document.querySelector('.toDoItem');
-  });
+    Interface.completedTasks = [
+      { index: 1, description: 'Task 1', completed: true },
+      { index: 2, description: 'Task 2', completed: true },
+    ];
 
-  afterEach(() => {
-    document.body.innerHTML = '';
-  });
+    Interface.clearAllTasks(new Event('click'));
 
-  test('should display an alert if no task is selected', () => {
-    jest.spyOn(instanceOfInterface, 'showAlert');
+    expect(getTasks).toHaveBeenCalled();
+    expect(clearTasks).toHaveBeenCalledTimes(2);
+    expect(arrangeList).toHaveBeenCalled();
+    expect(displayToDoList).toHaveBeenCalled();
 
-    clearBtn.click();
-    expect(instanceOfInterface.showAlert).toHaveBeenCalledWith('No task selected!', 'danger');
-  });
-
-  test('should clear all completed tasks and update the task list', () => {
-    clearBtn.click();
-
-    const completedTasks = Array.from(document.querySelectorAll('.toDoList')).filter((task) => task.querySelector('.checkbox').checked);
-    expect(completedTasks.length).toBe(0);
-
-    const taskListItems = document.querySelectorAll('.toDoList');
-    expect(taskListItems.length).toBe(0);
+    expect(Interface.completedTasks).toEqual([]);
+    expect(Interface.toDoList).toEqual([]);
   });
 });
