@@ -2,8 +2,6 @@ import Interface from './interface.js';
 import Storage from './storage.js';
 
 describe('addTask', () => {
-  // eslint-disable-next-line no-unused-vars
-  let instanceOfInterface;
   let inputElement;
 
   beforeEach(() => {
@@ -12,7 +10,6 @@ describe('addTask', () => {
       <input type = "text" id="title" />
     `;
 
-    instanceOfInterface = new Interface();
     inputElement = document.getElementById('title');
   });
 
@@ -34,8 +31,6 @@ describe('addTask', () => {
 });
 
 describe('deleteTask', () => {
-  // eslint-disable-next-line no-unused-vars
-  let instanceOfInterface;
   let listItem;
   let deleteBtn;
 
@@ -51,7 +46,6 @@ describe('deleteTask', () => {
       </div>
     `;
 
-    instanceOfInterface = new Interface();
     listItem = document.querySelector('.toDoList');
     deleteBtn = listItem.querySelector('.deleteBtn');
   });
@@ -66,16 +60,8 @@ describe('deleteTask', () => {
 });
 
 describe('editTask', () => {
-  // eslint-disable-next-line no-unused-vars
-  let instanceOfInterface;
   let listItem;
-  // eslint-disable-next-line no-unused-vars
-  let editInput;
   let menuInterfaceconClick;
-  // eslint-disable-next-line no-unused-vars
-  let trashBin;
-  // eslint-disable-next-line no-unused-vars
-  let taskID;
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -90,12 +76,8 @@ describe('editTask', () => {
       </div>
     `;
 
-    instanceOfInterface = new Interface();
     listItem = document.querySelector('.toDoList');
-    editInput = listItem.querySelector('.editInput');
     menuInterfaceconClick = listItem.querySelector('.menu');
-    trashBin = listItem.querySelector('.deleteBtn');
-    taskID = parseInt(menuInterfaceconClick.id, 10);
   });
 
   afterEach(() => {
@@ -108,14 +90,7 @@ describe('editTask', () => {
 });
 
 describe('lineOnTask', () => {
-  let instanceOfInterface;
   let checkbox;
-  // eslint-disable-next-line no-unused-vars
-  let listItem;
-  // eslint-disable-next-line no-unused-vars
-  let taskDescription;
-  // eslint-disable-next-line no-unused-vars
-  let completedTasks;
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -126,11 +101,8 @@ describe('lineOnTask', () => {
       </div>
     </div>
   `;
-    instanceOfInterface = new Interface();
+
     checkbox = document.querySelector('.checkbox');
-    listItem = document.querySelector('.toDoList');
-    taskDescription = document.querySelector('.taskDescription');
-    completedTasks = instanceOfInterface.completedTasks;
   });
 
   afterEach(() => {
@@ -172,6 +144,7 @@ describe('clearAllTasks', () => {
     expect(clearTasks).toHaveBeenCalledTimes(2);
     expect(arrangeList).toHaveBeenCalled();
     expect(displayToDoList).toHaveBeenCalled();
+
     expect(Interface.completedTasks).toEqual([]);
     expect(Interface.toDoList).toEqual([]);
   });
